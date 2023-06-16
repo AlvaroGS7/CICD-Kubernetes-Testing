@@ -28,7 +28,7 @@ jobs:
       run: cd dockerdir
       
     - name: Docker Build
-      run: docker build -t alvarogstem/pyflask:v3 ./dockerdir/dockerfile
+      run: docker build -t alvarogstem/pyflask:build ./dockerdir/dockerfile
       
-#     - name: Docker BuildX
-#       run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact .
+    - name: Docker BuildX
+      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:buildx ./dockerdir/dockerfile
