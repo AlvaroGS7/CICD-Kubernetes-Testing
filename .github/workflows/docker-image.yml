@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./dockerdir/dockerfile --tag AlvaroGS7/pyflask:$(date +%s)
+      run: docker build . --file ./dockerdir/dockerfile --tag pyflask:$(date +%s)
