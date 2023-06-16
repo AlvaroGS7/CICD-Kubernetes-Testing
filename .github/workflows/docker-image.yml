@@ -24,11 +24,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.5.3
       
-    - name: Move to Docker dir
-      run: cd dockerdir
+#     - name: Move to Docker dir
+#       run: cd dockerdir
       
     - name: Docker Build
-      run: docker build -t alvarogstem/pyflask:build ./dockerdir/dockerfile
+      run: cd dockerdir & docker build -t alvarogstem/pyflask:build ./dockerdir/dockerfile
       
     - name: Docker BuildX
-      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:buildx ./dockerdir/dockerfile
+      run: cd dockerdir & docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:buildx ./dockerdir/dockerfile
