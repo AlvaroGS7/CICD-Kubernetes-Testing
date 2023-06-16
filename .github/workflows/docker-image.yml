@@ -7,9 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,8 +20,10 @@ jobs:
         username: alvarogstem
         # Password or personal access token used to log against the Docker registry
         password: ${{secrets.AC_TOKEN}}
-    - name: Checkout
-      uses: actions/checkout@v3.5.3    
+        
+    - name: Test
+      run: pwd & ls
+      
     - name: Docker BuildX
       run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact ./dockerdir/dockerfile
 
