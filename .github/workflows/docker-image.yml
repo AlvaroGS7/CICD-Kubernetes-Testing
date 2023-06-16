@@ -22,9 +22,9 @@ jobs:
         username: alvarogstem
         # Password or personal access token used to log against the Docker registry
         password: ${{secrets.AC_TOKEN}}
+    - name: Checkout
+      uses: actions/checkout@v3.5.3    
     - name: Docker BuildX
-      uses: actions/checkout@v3
-      with:
-        run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact ./dockerdir/dockerfile
+      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact ./dockerdir/dockerfile
 
    
