@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deploy-alvaro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: python-cont-alvaro
+          image: alvarogstem/pyflask:v1
+          ports:
+            - containerPort: 8000
+          command: ["python", "app.py"]
