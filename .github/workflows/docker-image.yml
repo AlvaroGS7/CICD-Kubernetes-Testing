@@ -21,13 +21,11 @@ jobs:
         # Password or personal access token used to log against the Docker registry
         password: ${{secrets.AC_TOKEN}}
         
-    - name: Test
+    - name: Checkout
       uses: actions/checkout@v3.5.3
       
-    - name: Test
-      run: ls
+    - name: Move to Docker dir
+      run: cd dockerdir
       
     - name: Docker BuildX
-      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact ./dockerdir/dockerfile
-
-   
+      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact .
