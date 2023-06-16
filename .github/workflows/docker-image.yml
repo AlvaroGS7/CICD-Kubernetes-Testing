@@ -23,6 +23,6 @@ jobs:
         # Password or personal access token used to log against the Docker registry
         password: ${{secrets.AC_TOKEN}}
     - name: Docker BuildX
-      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v2 -t alvarogstem/pyflask:$(Build.BuildId) ./dockerdir/dockerfile
+      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact ./dockerdir/dockerfile
 
    
