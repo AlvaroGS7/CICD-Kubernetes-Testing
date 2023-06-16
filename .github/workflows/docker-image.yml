@@ -24,11 +24,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.5.3
       
-#     - name: Move to Docker dir
-#       run: cd dockerdir
-      
     - name: Docker Build
       run: cd dockerdir & docker build -t alvarogstem/pyflask:build ./dockerdir
       
     - name: Docker BuildX
       run: cd dockerdir & apt install -y qemu-user-static binfmt-support & docker run --rm --privileged multiarch/qemu-user-static --reset -p yes & docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:buildx ./dockerdir
+
+    - name: Docker Push
+      run: docker push alvarogstem/pyflask:build & docker push alvarogstem/pyflask:buildx
