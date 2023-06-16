@@ -27,5 +27,8 @@ jobs:
     - name: Move to Docker dir
       run: cd dockerdir
       
-    - name: Docker BuildX
-      run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact .
+    - name: Docker Build
+      run: docker build -t alvarogstem/pyflask:v3 .
+      
+#     - name: Docker BuildX
+#       run: docker buildx build --platform linux/arm -t alvarogstem/pyflask:v3 -t alvarogstem/pyflask:gitact .
